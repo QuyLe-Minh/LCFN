@@ -149,7 +149,7 @@ def dataset_split(Interaction):
 core = 20
 cold_thre = 15  # to avoid cold/cool item (items with less than `cold_thre' records)
 #path_read = 'ratings.dat'
-path_read = 'ratings.dat'
+path_read = 'u.data'
 path_train = 'train_data.json'
 path_test = 'test_data.json'
 path_validation = 'validation_data.json'
@@ -159,8 +159,8 @@ f.close()
 Interaction = []
 data = data.split('\n')
 for interactions in data:
-    interactions = interactions.split('::')
-    # interactions = interactions.split('\t')
+    #interactions = interactions.split('::')
+    interactions = interactions.split('\t')
     if len(interactions) > 1:
         Interaction.append((interactions[0], interactions[1]))
 #Interaction = list(set(Interaction))
