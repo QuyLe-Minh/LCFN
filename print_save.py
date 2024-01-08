@@ -44,7 +44,6 @@ def save_value(df_list,path_excel,first_sheet):
         else:
             for df in df_list:
                 df[0].to_excel(excel_writer=excelWriter, sheet_name=df[1], index=True)
-        excelWriter.close()
 
 def df2str(df):
     df_str = ''
