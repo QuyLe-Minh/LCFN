@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     ## setting tuning strategies here
     path_excel_dir = 'experiment_result/' + all_para[1] + '_' + all_para[2] + '_'
-    tuning_method = ['tuning', 'fine_tuning', 'cross_tuning', 'coarse_tuning', 'test'][4]  ## set here to tune model or test model
+    tuning_method = ['tuning', 'fine_tuning', 'cross_tuning', 'coarse_tuning', 'test'][0]  ## set here to tune model or test model
     ## initial hyperparameter settings
     lr_coarse, lamda_coarse = 0.001, 0.01
     lr_fine, lamda_fine = 0.0005, 0.1
