@@ -13,9 +13,9 @@ import os
 if __name__ == '__main__':
     ## change hyperparameters temporarily here
     change_dic = {
-        # 'ACTIVATION': ['None', 'Tanh', 'Sigmoid', 'ReLU'][0],
-        # 'dataset': 1,   # 0:Amazon, 1:Movielens
-        # 'model': 8,     # 0:MF, 1:NCF, 2:GCMC, 3:NGCF, 4:SCF, 5:CGMC, 6:LightGCN, 7:LCFN, 8:LGCN, 9:SGNN
+        'ACTIVATION': ['None', 'Tanh', 'Sigmoid', 'ReLU'][0],
+        'dataset': 1,   # 0:Amazon, 1:Movielens
+        'model': 8,     # 0:MF, 1:NCF, 2:GCMC, 3:NGCF, 4:SCF, 5:CGMC, 6:LightGCN, 7:LCFN, 8:LGCN, 9:SGNN
     }
     all_para = change_params(all_para, change_dic, pred_dim)
 
