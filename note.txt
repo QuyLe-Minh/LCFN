@@ -2,3 +2,4 @@ test:
 run following to predict: 
 model pretrain = True => all params are already saved in dataset folder
 sess.run(model.top_items, feed_dict={model.users: user_batch, model.keep_prob: 1, model.items_in_train_data: items_in_train_data, model.top_k: max(TOP_K)})
+Disable sparsity filter ?
