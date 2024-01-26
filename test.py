@@ -12,4 +12,3 @@ def test(path_excel_dir, para_name, para, data, iter_num):
         save_params(para_name, para, path_excel)
         _ = train_model(para, data, path_excel)
         if para[2] not in ['GCMC', 'NGCF', 'SCF', 'CGMC', 'LightGCN']: tf.reset_default_graph()
-    top_k = top_k_recommends(5, )

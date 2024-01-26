@@ -9,19 +9,20 @@ from coarse_tuning import coarse_tuning
 from test import test
 from read_data import read_all_data
 import os
+from recommends import top_k_recommends
 
 if __name__ == '__main__':
     ## change hyperparameters temporarily here
     change_dic = {
         'ACTIVATION': ['None', 'Tanh', 'Sigmoid', 'ReLU'][0],
         'dataset': 1,   # 0:Amazon, 1:Movielens
-        'model': 8,     # 0:MF, 1:NCF, 2:GCMC, 3:NGCF, 4:SCF, 5:CGMC, 6:LightGCN, 7:LCFN, 8:LGCN, 9:SGNN
+        'model': 7,     # 0:MF, 1:NCF, 2:GCMC, 3:NGCF, 4:SCF, 5:CGMC, 6:LightGCN, 7:LCFN, 8:LGCN, 9:SGNN
     }
     all_para = change_params(all_para, change_dic, pred_dim)
 
     ## setting tuning strategies here
     path_excel_dir = 'experiment_result/' + all_para[1] + '_' + all_para[2] + '_'
-    tuning_method = ['tuning', 'fine_tuning', 'cross_tuning', 'coarse_tuning', 'test'][0]  ## set here to tune model or test model
+    tuning_method = ['tuning', 'fine_tuning', 'cross_tuning', 'coarse_tuning', 'test', 'recommend'][4]  ## set here to tune model or test model
     ## initial hyperparameter settings
     lr_coarse, lamda_coarse = 0.001, 0.01
     lr_fine, lamda_fine = 0.0005, 0.1
@@ -41,6 +42,7 @@ if __name__ == '__main__':
     if all_para[2] == 'SGNN': para_name += ['PROP_DIM', 'PROP_EMB', 'IF_NORM']
     # if testing the model, we need to read in test set
     if tuning_method == 'test': all_para[11] = para[11] = 'Test'
+    if tuning_method == 'recommend': all_para[11] = para[11] = 'Test'
 
     ## read data
     data = read_all_data(all_para)
@@ -53,4 +55,7 @@ if __name__ == '__main__':
     if tuning_method == 'cross_tuning': cross_tuning(path_excel_dir, para_name, para, data, lr_fine, lamda_fine, min_num_fine, max_num_fine)
     if tuning_method == 'coarse_tuning': coarse_tuning(path_excel_dir, para_name, para, data, lr_coarse, lamda_coarse, min_num_coarse, max_num_coarse)
     if tuning_method == 'test': test(path_excel_dir, para_name, para, data, iter_num_test)
+    if tuning_method == 'recommend': 
+        top_items = top_k_recommends(user_id=5, data = data, para=para)
+        print(top_items)
 
