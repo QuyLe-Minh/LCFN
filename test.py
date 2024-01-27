@@ -2,7 +2,6 @@ from train_model import train_model
 from print_save import print_params, save_params
 import tensorflow as tf
 import random as rd
-from recommends import top_k_recommends
 import time
 
 def test(path_excel_dir, para_name, para, data, iter_num):

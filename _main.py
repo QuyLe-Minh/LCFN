@@ -9,7 +9,6 @@ from coarse_tuning import coarse_tuning
 from test import test
 from read_data import read_all_data
 import os
-from recommends import top_k_recommends
 
 if __name__ == '__main__':
     ## change hyperparameters temporarily here

@@ -19,7 +19,6 @@ import numpy as np
 import random as rd
 import pandas as pd
 import time
-from recommends import top_k_recommends
 
 def train_model(para, data, path_excel):
     ## data and hyperparameters
