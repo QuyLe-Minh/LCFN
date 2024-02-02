@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     ## setting tuning strategies here
     path_excel_dir = 'experiment_result/' + all_para[1] + '_' + all_para[2] + '_'
-    tuning_method = ['tuning', 'fine_tuning', 'cross_tuning', 'coarse_tuning', 'test', 'recommend'][4]  ## set here to tune model or test model
+    tuning_method = ['tuning', 'fine_tuning', 'cross_tuning', 'coarse_tuning', 'test'][4]  ## set here to tune model or test model
     ## initial hyperparameter settings
     lr_coarse, lamda_coarse = 0.001, 0.01
     lr_fine, lamda_fine = 0.0005, 0.1
@@ -54,7 +54,4 @@ if __name__ == '__main__':
     if tuning_method == 'cross_tuning': cross_tuning(path_excel_dir, para_name, para, data, lr_fine, lamda_fine, min_num_fine, max_num_fine)
     if tuning_method == 'coarse_tuning': coarse_tuning(path_excel_dir, para_name, para, data, lr_coarse, lamda_coarse, min_num_coarse, max_num_coarse)
     if tuning_method == 'test': test(path_excel_dir, para_name, para, data, iter_num_test)
-    if tuning_method == 'recommend': 
-        top_items = top_k_recommends(user_id=5, data = data, para=para)
-        print(top_items)
 
