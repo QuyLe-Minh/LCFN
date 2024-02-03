@@ -1,12 +1,22 @@
-import fastapi as FastAPI
+from fastapi import FastAPI
 from pydantic import BaseModel
-import recommend
+from app.recommend import recommend
+import numpy as np
 
 app = FastAPI()
 
 class TextIn(BaseModel):
-    text: str
+    text:int
     
-class Prediction(BaseModel):
-    out: str
+class PredictionOut(BaseModel):
+    recommendations:list
     
+@app.get("/")
+def home():
+    return {"health_check": "OK"}
+
+@app.post("/predict", response_model=PredictionOut)
+def recommendation(payload: TextIn):
+    rec = recommend(np.array([payload.text]))[0]
+    return {"recommendations": rec}
+

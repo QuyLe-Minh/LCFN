@@ -59,6 +59,6 @@ def recommend(user_batch):
     user_top_items = train(user_batch, para, data)
     return user_top_items
 
-if __name__ == '__main__':
-    print(recommend(np.array([4])))
+# if __name__ == '__main__':
+#     print(recommend(np.array([4])))
     
