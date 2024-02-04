@@ -1,11 +1,11 @@
-from params import MODEL_list
-from params import LR_list
-from params import LAMDA_list
-from params import LAYER_list
-from params import EMB_list
-from params import TEST_USER_BATCH_list
-from params import FREQUENCY_USER_list
-from params import FREQUENCY_ITEM_list
+from app.params import MODEL_list
+from app.params import LR_list
+from app.params import LAMDA_list
+from app.params import LAYER_list
+from app.params import EMB_list
+from app.params import TEST_USER_BATCH_list
+from app.params import FREQUENCY_USER_list
+from app.params import FREQUENCY_ITEM_list
 
 def change_params(all_para, change_dic, pred_dim):
     para_name2para_id = {'GPU_INDEX': 0, 'DATASET': 1, 'MODEL': 2, 'LR': 3, 'LAMDA': 4, 'LAYER': 5, 'EMB_DIM': 6,

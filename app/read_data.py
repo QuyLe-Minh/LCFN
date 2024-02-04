@@ -8,7 +8,7 @@
 import json
 import numpy as np
 import random as rd
-from dense2sparse import propagation_matrix
+from app.dense2sparse import propagation_matrix
 
 def read_data(path):
     with open(path) as f:
@@ -51,7 +51,7 @@ def read_all_data(all_para):
     [hypergraph_embeddings, graph_embeddings, propagation_embeddings, sparse_propagation_matrix] = [0, 0, 0, 0]
 
     ## Paths of data
-    DIR = 'dataset/' + DATASET + '/'
+    DIR = 'app/dataset/' + DATASET + '/'
     train_path = DIR + 'train_data.json'
     test_path = DIR + 'test_data.json'
     validation_path = DIR + 'validation_data.json'

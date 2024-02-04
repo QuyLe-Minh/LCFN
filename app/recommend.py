@@ -1,11 +1,11 @@
 import tensorflow.compat.v1 as tf
 tf.compat.v1.disable_v2_behavior()
 import random as rd
-from model_LGCN import model_LGCN
+from app.model_LGCN import model_LGCN
 import numpy as np
-from params import all_para, pred_dim
-from change_params import change_params
-from read_data import read_all_data
+from app.params import all_para, pred_dim
+from app.change_params import change_params
+from app.read_data import read_all_data
 import os
 
 def train(user_batch, para, data):
@@ -57,7 +57,8 @@ def recommend(user_batch):
 
     os.environ["CUDA_VISIBLE_DEVICES"] = all_param[0] 
     user_top_items = train(user_batch, para, data)
-    return user_top_items
+    # print(type(user_top_items))
+    return user_top_items[0]
 
 # if __name__ == '__main__':
 #     print(recommend(np.array([4])))
